@@ -25,6 +25,11 @@
         </encoder>
     </appender>
 
+    <logger name="com.galka.expenses" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APP"/>
+    </logger>
+
     <root level="error">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="APP"/>
