@@ -1,0 +1,16 @@
+#H2 settings
+spring:
+  profiles:
+    active: @activatedProperties@
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+server:
+  servlet:
+    context-path: /api
+
+#axon:
+#  axonserver:
+#    servers: localhost:8024
