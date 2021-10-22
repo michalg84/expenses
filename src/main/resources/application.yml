@@ -6,6 +6,10 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    mode: HTML5
 server:
   servlet:
     context-path: /api
