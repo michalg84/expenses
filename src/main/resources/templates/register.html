@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
-    <title>MyExpenses register</title>
+    <title>Expenses register</title>
     <script th:src="@{/js/jquery-1.12.4.js}"></script>
     <script th:src="@{/js/bootstrap.js}"></script>
-    <link th:rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
-    <link th:rel="stylesheet" th:href="@{/css/signin.css}"/>
-
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/signin.css}"/>
+    <meta charset="UTF-8">
 
 </head>
 <body>
 
 <div class="container">
-    <form class="form-signin" th:object="${userDto}" th:action="@{register}" th:method="post">
+    <form class="form-signin" th:object="${registerUserDto}" th:action="@{register}" th:method="post">
         <h2 class="form-signin-heading ">Please insert your data</h2>
 
 
@@ -20,15 +20,6 @@
         <input type="text" class="form-control" placeholder="Username" th:field="*{username}"
                id="username" required="true"/>
         <div class="error-msg" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Wrong username</div>
-
-
-        <!--<label for="acocunt-no">Account number</label>-->
-        <!--<input type="text" class="form-control" placeholder="Account number" th:field="*{accounts}"-->
-        <!--id="acocunt-no" required="true"/>-->
-
-        <!--<label for="login">Login</label>-->
-        <!--<input type="text" class="form-control" placeholder="Login" th:field="*{login}" id="login"-->
-        <!--required="true"/>-->
 
         <label for="email">E-mail</label>
         <input type="email" class="form-control" placeholder="E-mail" th:field="*{mail}" id="email"
@@ -49,17 +40,11 @@
 
         <div>
             <small>* 5-25 signs</small>
-
         </div>
 
         <button class=" btn btn-lg btn-primary btn-block" type="submit">Register</button>
         <a class=" btn btn-lg btn-info btn-block" th:href="@{/login}">Back to login page</a>
-
     </form>
-
-
 </div> <!-- container-->
-
-
 </body>
 </html>

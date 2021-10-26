@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Expenses login</title>
+    <script th:src="@{/js/jquery-1.12.4.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link th:rel="stylesheet" th:href="@{/css/signin.css}"/>
+
+    <script>
+    $(document).ready(function () {
+        $('#username').set("");                <!-- clear-->
+        $('#password').set("");
+    });
+    $(document).ready(function () {
+        $('#message').fadeOut(8000);
+    });
+     $(document).ready(function () {
+        $('#notifications').fadeOut(8000);
+    });
+</script>
+
+</head>
+<body>
+
+<div class="container">
+    <form class="form-signin"  th:object="${loginUserDto}" th:action="@{login}"  th:method="post">
+
+        <h2 class="form-signin-heading">Please sign in</h2>
+
+        <div id="message" th:if="${message}" th:text="${message.msg}" class="alert alert-warning">message</div>
+
+        <label for="username" class="sr-only">Email address</label>
+        <input type="text" name="username"
+
+               id="username" class="form-control"
+               placeholder="username"  required="true" autofocus="true" />
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password"
+
+               id="inputPassword" class="form-control"   placeholder="Password"
+               required="true"/>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+
+        <a th:href="@{register}" class=" btn btn-lg btn-info btn-block">Register</a>
+    </form>
+</div> <!--end of container-->
+</body>
+</html>
