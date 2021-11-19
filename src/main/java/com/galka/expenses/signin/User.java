@@ -1,15 +1,20 @@
 package com.galka.expenses.signin;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Slf4j
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -24,6 +29,8 @@ public class User {
     private String mail;
     @Column
     private String password;
+    @OneToMany(targetEntity = Role.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Role> roles;
 
 
 }
