@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.nio.charset.StandardCharsets;
 
 @Controller
 @RequestMapping("/")
@@ -35,7 +36,7 @@ public class HomeController {
     @PostMapping(REGISTER)
     public String register(@ModelAttribute @Valid RegisterUserDto dto) {
         log.info("RegisterUserDto {}", dto);
-        commandGateway.sendAndWait(new UserSignInCommand(dto.getUsername(), dto.getMail(), dto.getPassword(), dto.getConfirmPassword()));
+        commandGateway.sendAndWait(new RegisterUserCommand(dto.getUsername(), dto.getMail(), dto.getPassword().getBytes(StandardCharsets.UTF_8), dto.getConfirmPassword()));
         return "redirect:user/account";
     }
 

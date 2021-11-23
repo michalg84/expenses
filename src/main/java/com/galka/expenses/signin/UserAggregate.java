@@ -23,16 +23,16 @@ public class UserAggregate {
     private String password;
 
     @CommandHandler
-    public UserAggregate(UserSignInCommand cmd) {
+    public UserAggregate(RegisterUserCommand cmd) {
         log.info("AccountCreatedCommand received.");
-        AggregateLifecycle.apply(new UserSignInEvent(cmd.getUsername(),
+        AggregateLifecycle.apply(new CreateUserEvent(cmd.getUsername(),
                 cmd.getMail(),
                 cmd.getPassword(),
                 cmd.getConfirmPassword()));
     }
 
     @EventSourcingHandler
-    public void on(UserSignInEvent event) {
+    public void on(CreateUserEvent event) {
         log.info("An UserSignInEvent occurred with: {}.", event);
 
 //        AggregateLifecycle.apply(new AccountActivatedEvent(this.accountId, "ACTIVATED"));

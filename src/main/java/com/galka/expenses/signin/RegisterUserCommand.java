@@ -8,11 +8,11 @@ import lombok.ToString;
 @Getter(AccessLevel.PACKAGE)
 @ToString
 @RequiredArgsConstructor
-class UserSignInCommand {
+class RegisterUserCommand {
 
     private final String username;
     private final String mail;
-    private final String password;
+    private final byte[] password;
     private final String confirmPassword;
 
 

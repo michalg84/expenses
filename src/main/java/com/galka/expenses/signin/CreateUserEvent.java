@@ -8,11 +8,10 @@ import lombok.ToString;
 @Getter(AccessLevel.PACKAGE)
 @RequiredArgsConstructor
 @ToString
-public class UserSignInEvent {
-
+public class CreateUserEvent {
 
     private final String username;
     private final String mail;
-    private final String password;
+    private final byte[] password;
     private final String confirmPassword;
 }
