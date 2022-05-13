@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Expenses" type="Multirun" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+    <runConfiguration name="Axon Server" type="JAR Application" />
+    <runConfiguration name="ExpensesApplication" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>
